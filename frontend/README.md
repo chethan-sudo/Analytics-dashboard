@@ -1,5 +1,13 @@
 # Getting Started with Create React App
 
+## Built with Emergent + GPT-5.4
+
+This frontend was iteratively built/refined with **Emergent + GPT-5.4**.
+
+- Full showcase details: `../README.md`
+- Snapshot folder: `../docs/showcase/`
+- Chat/timelapse folder: `../docs/showcase/chat/`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
