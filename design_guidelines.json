@@ -1,0 +1,200 @@
+{
+  "general_guidelines": {
+    "identity": "E1: The Anti-AI Designer",
+    "core_philosophy": {
+      "fusion": "Mix 'Luxury Editorial' with 'High-Performance Fintech'. Think Vogue meets Bloomberg Terminal.",
+      "emotion": "Confidence, Authority, Precision.",
+      "content_first": "Data is the star. Chrome is minimal but expensive.",
+      "negative_space": "Use whitespace as a luxury material. Don't crowd the data."
+    },
+    "anti_patterns": [
+      "Standard generic SaaS blue/purple gradients.",
+      "Rounded 'bubbly' cards without structure.",
+      "Flat, lifeless data tables.",
+      "Centered text where it should be left-aligned for scanning."
+    ],
+    "testing_requirement": "All interactive elements MUST include data-testid attributes (e.g., data-testid='kpi-card-revenue')."
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Playfair Display, serif",
+      "body": "Inter, sans-serif",
+      "mono": "JetBrains Mono, monospace"
+    },
+    "font_urls": [
+      "https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500;700&display=swap"
+    ],
+    "scale": {
+      "h1": "text-4xl md:text-5xl font-heading tracking-tight font-medium",
+      "h2": "text-3xl font-heading tracking-tight font-medium",
+      "h3": "text-xl font-heading tracking-normal font-medium",
+      "body_lg": "text-lg font-body leading-relaxed",
+      "body": "text-base font-body leading-relaxed text-muted-foreground",
+      "mono_lg": "text-2xl font-mono tracking-tighter font-medium",
+      "mono": "text-sm font-mono tracking-tight"
+    },
+    "usage_rules": [
+      "Use 'Playfair Display' for all section titles and big impact statements.",
+      "Use 'JetBrains Mono' for ALL numeric data, prices, percentages, and dates.",
+      "Use 'Inter' for UI labels, body text, and navigation.",
+      "Headings should be TIGHT (tracking-tight). Numbers should be clear."
+    ]
+  },
+  "colors": {
+    "theme_strategy": "High Contrast Luxury",
+    "light_theme": {
+      "background": "#F8F9FA",
+      "foreground": "#0F172A",
+      "card": "#FFFFFF",
+      "card_foreground": "#0F172A",
+      "popover": "#FFFFFF",
+      "popover_foreground": "#0F172A",
+      "primary": "#0F172A",
+      "primary_foreground": "#F8FAFC",
+      "secondary": "#F1F5F9",
+      "secondary_foreground": "#0F172A",
+      "muted": "#F1F5F9",
+      "muted_foreground": "#64748B",
+      "accent": "#F1F5F9",
+      "accent_foreground": "#0F172A",
+      "destructive": "#EF4444",
+      "destructive_foreground": "#F8FAFC",
+      "border": "#E2E8F0",
+      "input": "#E2E8F0",
+      "ring": "#0F172A"
+    },
+    "dark_theme": {
+      "background": "#09090B",
+      "foreground": "#FAFAFA",
+      "card": "#18181B",
+      "card_foreground": "#FAFAFA",
+      "popover": "#18181B",
+      "popover_foreground": "#FAFAFA",
+      "primary": "#FAFAFA",
+      "primary_foreground": "#18181B",
+      "secondary": "#27272A",
+      "secondary_foreground": "#FAFAFA",
+      "muted": "#27272A",
+      "muted_foreground": "#A1A1AA",
+      "accent": "#27272A",
+      "accent_foreground": "#FAFAFA",
+      "destructive": "#7F1D1D",
+      "destructive_foreground": "#FAFAFA",
+      "border": "#27272A",
+      "input": "#27272A",
+      "ring": "#D4D4D8"
+    },
+    "semantic_palette": {
+      "profit": "#10B981",
+      "loss": "#F43F5E",
+      "brand_gold": "#D4AF37",
+      "chart_1": "#0F172A",
+      "chart_2": "#64748B",
+      "chart_3": "#94A3B8",
+      "chart_4": "#CBD5E1",
+      "chart_5": "#E2E8F0"
+    }
+  },
+  "layout_structure": {
+    "grid_system": "Bento Grid Mode B (High Density)",
+    "container": "w-full max-w-[1600px] mx-auto p-6 md:p-8 space-y-8",
+    "sections": {
+      "header": {
+        "layout": "flex justify-between items-center mb-8",
+        "elements": [
+          "Left: Title (H1, Serif) + Subtitle (Body, Muted)",
+          "Right: Controls (Date Range, Theme Toggle, Notifications, User Avatar)"
+        ]
+      },
+      "hero_fold": {
+        "layout": "grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8",
+        "left_column": {
+          "span": "lg:col-span-8",
+          "content": "Hero Chart (Revenue Trend with Tabs). Height: h-[400px]"
+        },
+        "right_column": {
+          "span": "lg:col-span-4",
+          "content": "KPI Stack. Vertical flex or grid of 4 cards. Total Revenue (Top), Win Rate (Ring), Active Pipeline, Deals Won."
+        }
+      },
+      "middle_fold": {
+        "layout": "grid grid-cols-1 lg:grid-cols-12 gap-6 mb-8",
+        "column_1": {
+          "span": "lg:col-span-4",
+          "content": "Pipeline Funnel (Vertical Bar Chart or Funnel Viz)"
+        },
+        "column_2": {
+          "span": "lg:col-span-8",
+          "content": "Top Agents Leaderboard (Table with Avatars and Trend Sparklines)"
+        }
+      },
+      "bottom_fold": {
+        "layout": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+        "card_1": "Revenue by Product (Horizontal Bar)",
+        "card_2": "Win Rate by Sector (Radar or Polar Grid)",
+        "card_3": "Team Performance (Grouped Bar or Table)"
+      }
+    }
+  },
+  "components": {
+    "cards": {
+      "base": "rounded-xl border border-border/50 bg-card/50 backdrop-blur-xl shadow-sm hover:shadow-md transition-all duration-300",
+      "header": "flex justify-between items-center mb-4 p-6 pb-0",
+      "body": "p-6 pt-4"
+    },
+    "buttons": {
+      "primary": "rounded-full bg-primary text-primary-foreground px-6 py-2 font-medium hover:opacity-90 transition-opacity",
+      "outline": "rounded-full border border-border bg-transparent hover:bg-muted transition-colors"
+    },
+    "charts": {
+      "library": "Recharts",
+      "style": "Minimalist. Remove grid lines (vertical). Use custom tooltips (glassmorphism).",
+      "colors": {
+        "light": ["#0F172A", "#64748B", "#94A3B8", "#CBD5E1", "#E2E8F0"],
+        "dark": ["#F8FAFC", "#94A3B8", "#64748B", "#475569", "#334155"]
+      }
+    },
+    "sidebar": {
+      "style": "Fixed left. Collapsible. Glassmorphism background. Border-r border-border/50.",
+      "state": "Expanded by default on desktop, icon-only on tablet."
+    }
+  },
+  "motion": {
+    "library": "framer-motion",
+    "transitions": {
+      "default": { "duration": 0.4, "ease": [0.22, 1, 0.36, 1] },
+      "stagger": 0.05
+    },
+    "interactions": {
+      "hover_card": "y: -4, shadow: 'lg'",
+      "click_button": "scale: 0.98"
+    }
+  },
+  "image_assets": {
+    "user_avatar": "https://images.unsplash.com/photo-1576558656222-ba66febe3dec?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzcyNjM3MTk2fDA&ixlib=rb-4.1.0&q=85",
+    "agents": [
+      "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzcyNjM3MTk2fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.unsplash.com/photo-1689600944138-da3b150d9cb8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzcyNjM3MTk2fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/6572210/pexels-photo-6572210.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0JTIwaGVhZHNob3R8ZW58MHx8fHwxNzcyNjM3MTk2fDA&ixlib=rb-4.1.0&q=85",
+      "https://images.pexels.com/photos/14589344/pexels-photo-14589344.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    ]
+  },
+  "instructions_to_main_agent": [
+    "1. SETUP: Install 'lucide-react', 'recharts', 'framer-motion', 'clsx', 'tailwind-merge' if missing.",
+    "2. THEME: Implement the 'High Contrast Luxury' theme in 'tailwind.config.js' and 'index.css'. Use CSS variables.",
+    "3. FONTS: Add the Google Fonts import to 'index.css'. Update Tailwind font families.",
+    "4. LAYOUT: Build the 'Hero Fold' first. Ensure the Revenue Chart is the dominant visual anchor.",
+    "5. COMPONENTS: Create a reusable 'DashboardCard' component with the glassmorphism styles.",
+    "6. CHARTS: Create a 'ChartContainer' component that handles the responsive sizing and tooltip styles.",
+    "7. SIDEBAR: Ensure it collapses smoothly to icons only. Use 'framer-motion' for the width transition.",
+    "8. DATA: Hardcode all the provided data in a 'data.js' or 'constants.js' file. DO NOT simulate API calls.",
+    "9. TESTING: Add 'data-testid' to every card, button, and input.",
+    "10. POLISH: Add entrance animations (staggered fade-in) for all cards."
+  ],
+  "universal_guidelines": {
+    "do_not_use": ["Inter for Headings", "Gradients on Text", "Default Blue/Purple Primary"],
+    "must_use": ["Serif for Headings", "Mono for Data", "Subtle Borders", "Glassmorphism"],
+    "accessibility": "Ensure text contrast ratios (4.5:1) are met. Use darker grays for text, never light gray on white."
+  }
+}

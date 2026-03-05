@@ -1,0 +1,60 @@
+{
+  "summary": "Frontend-only bug-fix validation completed on public URL. Most requested fixes pass (profile de-duplication, fixed sidebar on scroll, Reports/Settings anchor behavior, chart hover cleanup, team matrix readability, deal-size visibility, and no horizontal overflow). One major mobile text-fit regression was found.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {
+        "component": "HeaderBar / top-fold copy on mobile",
+        "issue": "At 390x844, header title/subtitle collapse to near-zero width and render vertically (one-character-per-line), breaking readability and alignment under aspect-ratio changes.",
+        "selector": "[data-testid=\"header-title\"], [data-testid=\"header-subtitle\"]",
+        "priority": "CRITICAL"
+      }
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {
+        "screen": "Mobile dashboard (390x844)",
+        "issues": [
+          "Top-fold narrative text is visually broken and unusable due to layout compression",
+          "Text fitting/alignment requirement is not satisfied on narrow viewport"
+        ]
+      }
+    ]
+  },
+  "test_report_links": [
+    "/app/frontend/src/App.js",
+    "/app/frontend/src/components/dashboard/HeaderBar.jsx",
+    "/app/frontend/src/components/dashboard/MonthlyTrendSection.jsx",
+    "/app/frontend/src/components/dashboard/ProductRevenueSection.jsx",
+    "/app/frontend/src/components/dashboard/PipelineSection.jsx",
+    "/app/frontend/src/components/dashboard/SectorDonutSection.jsx",
+    "/app/frontend/src/components/dashboard/TeamRadarSection.jsx",
+    "/app/frontend/src/components/dashboard/DealSizeSection.jsx",
+    "/app/frontend/src/styles/dashboard-critical-fixes.css",
+    "/app/frontend/src/styles/dashboard-luxury-refinement.css"
+  ],
+  "action_items": [
+    "Fix mobile header layout conflict so title/subtitle keep usable width (390x844 repro).",
+    "Resolve CSS cascade conflict where dashboard-critical-fixes.css overrides responsive header grid behavior from dashboard-luxury-refinement.css.",
+    "Re-test text fitting/alignment across mobile aspect ratios after CSS adjustment."
+  ],
+  "critical_code_review_comments": [
+    "CSS order/cascade regression: dashboard-critical-fixes.css redefines .dashboard-header-compact to a 2-column grid after luxury stylesheet media rules, causing copy column collapse on mobile.",
+    "Multiple large global style files with overlapping selectors increase regression risk; current bug is caused by conflicting duplicate selectors across style layers."
+  ],
+  "updated_files": [
+    "/app/test_reports/iteration_4.json"
+  ],
+  "success_rate": {
+    "backend": "N/A (frontend-only scope)",
+    "frontend": "89% (8/9 requested bug-fix checks passed; mobile text-fit failed)"
+  },
+  "seed_data_creation": "None",
+  "retest_needed": true,
+  "should_main_agent_self_test": false,
+  "context_for_next_testing_agent": "Verified on https://maven-sales-hub.stage-preview.emergentagent.com via Playwright. Passing: profile de-duplication, sidebar fixed behavior, reports/settings anchors, hero/deals hover behavior, team matrix readability, pie side-panel updates, deal-size data visibility, and no horizontal overflow at 1920/768/390. Failing: mobile text-fit regression (390x844) with header copy rendered vertically. Screenshot captured: /app/test_reports/pytest/iteration4_mobile_textfit.jpeg.",
+  "rca of the issue": "Repro: open app at 390x844. Observe header subtitle/title become 0-width-like columns and wrap one character per line. Root cause: CSS cascade conflict; dashboard-luxury-refinement.css sets responsive single-column header at <=1380px, but later-loaded dashboard-critical-fixes.css resets .dashboard-header-compact to two-column grid without equivalent mobile override, forcing copy column collapse when toolbar controls consume width. Mitigation: add/restore small-screen single-column override in final-loaded stylesheet or reduce selector overlap between style layers."
+}

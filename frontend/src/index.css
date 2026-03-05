@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: "Inter", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-mono: "Inter", sans-serif;
+    --crm-cyan: #06b6d4;
+    --crm-green: #10b981;
+    --crm-amber: #f59e0b;
+    --crm-rose: #f43f5e;
+    --crm-indigo: #6366f1;
+    --crm-purple: #8b5cf6;
+    --sidebar-width: 17rem;
+    --sidebar-width-collapsed: 5.75rem;
+    --radius: 0.75rem;
+    --transition-slow: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  :root,
+  :root[data-theme="dark"] {
+    --crm-bg-primary: #050505;
+    --crm-bg-secondary: #0a0a0a;
+    --crm-bg-tertiary: #121212;
+    --crm-surface: rgba(20, 20, 20, 0.6);
+    --crm-surface-strong: rgba(255, 255, 255, 0.03);
+    --crm-surface-soft: rgba(255, 255, 255, 0.07);
+    --crm-border: rgba(255, 255, 255, 0.08);
+    --crm-border-active: rgba(255, 255, 255, 0.15);
+    --crm-border-highlight: rgba(255, 255, 255, 0.25);
+    --crm-text-primary: #ededed;
+    --crm-text-secondary: #a1a1aa;
+    --crm-text-muted: #52525b;
+    --crm-shadow: 0 34px 72px rgba(0, 0, 0, 0.42);
+    --crm-shadow-soft: 0 18px 36px rgba(0, 0, 0, 0.24);
+    --crm-hover-shadow: 0 20px 42px rgba(0, 0, 0, 0.52), 0 0 0 1px rgba(255, 255, 255, 0.12), 0 0 24px rgba(6, 182, 212, 0.1);
+    --crm-track: rgba(255, 255, 255, 0.08);
+    --background: 0 0% 2%;
+    --foreground: 0 0% 93%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 93%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 93%;
+    --primary: 188 91% 43%;
+    --primary-foreground: 0 0% 93%;
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 93%;
+    --muted: 0 0% 10%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 0 0% 10%;
+    --accent-foreground: 0 0% 93%;
+    --destructive: 346 89% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
+    --ring: 188 91% 43%;
+    --chart-1: 188 91% 43%;
+    --chart-2: 238 83% 66%;
+    --chart-3: 160 84% 39%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 261 83% 65%;
+    color-scheme: dark;
+  }
+
+  :root[data-theme="light"] {
+    --crm-bg-primary: #f8f9fa;
+    --crm-bg-secondary: #ffffff;
+    --crm-bg-tertiary: #f1f5f9;
+    --crm-surface: rgba(255, 255, 255, 0.9);
+    --crm-surface-strong: rgba(255, 255, 255, 0.6);
+    --crm-surface-soft: rgba(255, 255, 255, 0.9);
+    --crm-border: rgba(0, 0, 0, 0.06);
+    --crm-border-active: rgba(0, 0, 0, 0.12);
+    --crm-border-highlight: rgba(0, 0, 0, 0.2);
+    --crm-text-primary: #18181b;
+    --crm-text-secondary: #52525b;
+    --crm-text-muted: #a1a1aa;
+    --crm-shadow: 0 24px 48px rgba(15, 23, 42, 0.08);
+    --crm-shadow-soft: 0 12px 24px rgba(15, 23, 42, 0.05);
+    --crm-hover-shadow: 0 20px 40px rgba(15, 23, 42, 0.14);
+    --crm-track: rgba(0, 0, 0, 0.08);
+    --background: 210 20% 98%;
+    --foreground: 240 6% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 6% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 6% 10%;
+    --primary: 188 91% 43%;
+    --primary-foreground: 240 6% 10%;
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 240 6% 10%;
+    --muted: 210 20% 95%;
+    --muted-foreground: 240 5% 45%;
+    --accent: 210 20% 95%;
+    --accent-foreground: 240 6% 10%;
+    --destructive: 346 89% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 16% 90%;
+    --input: 210 16% 90%;
+    --ring: 188 91% 43%;
+    --chart-1: 188 91% 43%;
+    --chart-2: 238 83% 66%;
+    --chart-3: 160 84% 39%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 261 83% 65%;
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+    @apply border-border;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    font-feature-settings: "tnum" 1;
+    background: var(--crm-bg-primary);
+    color: var(--crm-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 220ms ease, color 220ms ease;
+    @apply bg-background text-foreground;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  ::selection {
+    background: rgba(6, 182, 212, 0.24);
+    color: var(--crm-text-primary);
+  }
+
+  [data-debug-wrapper="true"] {
+    display: contents !important;
+  }
+
+  [data-debug-wrapper="true"] > * {
+    margin-left: inherit;
+    margin-right: inherit;
+    margin-top: inherit;
+    margin-bottom: inherit;
+    padding-left: inherit;
+    padding-right: inherit;
+    padding-top: inherit;
+    padding-bottom: inherit;
+    column-gap: inherit;
+    row-gap: inherit;
+    gap: inherit;
+    border-left-width: inherit;
+    border-right-width: inherit;
+    border-top-width: inherit;
+    border-bottom-width: inherit;
+    border-left-style: inherit;
+    border-right-style: inherit;
+    border-top-style: inherit;
+    border-bottom-style: inherit;
+    border-left-color: inherit;
+    border-right-color: inherit;
+    border-top-color: inherit;
+    border-bottom-color: inherit;
+  }
+}
+
